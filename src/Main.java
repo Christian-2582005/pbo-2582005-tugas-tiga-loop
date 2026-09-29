@@ -1,15 +1,51 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.Scanner;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+public class TigaLoop {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Batas deret (n) : ");
+        int n = scanner.nextInt();
+
+        System.out.println();
+        System.out.println("===== SATU DERET, TIGA LOOP =====");
+
+        System.out.print("for      :");
+        for (int i = 1; i <= n; i++) {
+            System.out.print(" " + i);
         }
+        System.out.println();
+
+        System.out.print("while    :");
+        int iWhile = 1;
+        while (iWhile <= n) {
+            System.out.print(" " + iWhile);
+            iWhile++;
+        }
+        System.out.println();
+
+        System.out.print("do-while :");
+        int iDoWhile = 1;
+        do {
+            System.out.print(" " + iDoWhile);
+            iDoWhile++;
+        } while (iDoWhile <= n);
+        System.out.println();
+
+        // Off-by-one: dua penghitung, batas i < n lawan i <= n
+        int kurang = 0;
+        for (int i = 1; i < n; i++) {
+            kurang++;
+        }
+        int kurangSama = 0;
+        for (int i = 1; i <= n; i++) {
+            kurangSama++;
+        }
+
+        System.out.println();
+        System.out.println("i <  n berputar : " + kurang + " kali");
+        System.out.println("i <= n berputar : " + kurangSama + " kali");
+
+        scanner.close();
     }
 }
